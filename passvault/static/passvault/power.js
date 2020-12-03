@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded',() =>{
     try{
         document.querySelector('.form-login').addEventListener('submit',()=>checkForm());
     } catch (e){
-
+        console.log(e)
     }
     
 });
@@ -38,24 +38,7 @@ function checkForm(){
         formToCheck.submit();
         return true;
 
-    } else if (formToCheck.name === 'login-from'){
-        let username = formToCheck['username'];
-        let password = formToCheck['password'];
-
-        if (username.value === ''){
-            window.alert("Please enter a username");
-            username.focus();
-            return false;
-        }
-        
-        if (password.value === ""){
-            window.alert("Please enter a password!");
-            password.focus();
-            return false;
-        }
-        formToCheck.submit();
-        return true;
-    } else if (formToCheck.name === 'login-from'){
+    } else if (formToCheck.name === 'login-form'){
         let username = formToCheck['username'];
         let password = formToCheck['password'];
 
