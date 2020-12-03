@@ -1,0 +1,17 @@
+{% extends "passvault/layout.html" %}
+
+{% block body %}
+<form action="{% url 'search' %}" method="post" name='Search-form' class="form-login">
+    {% csrf_token %}
+    
+    <h4>Search</h4>
+    
+    <input id="SiteName" type="text" name='Searchquery' placeholder="Site Name">
+    
+    <input id="sbutton" type="submit" value="Search">
+
+</form>
+<ul class="nav-links">
+    <li><a href="{% url 'userMenu'%}">Back</a></li>
+</ul>
+{% endblock %}

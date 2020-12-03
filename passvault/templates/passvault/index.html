@@ -1,0 +1,9 @@
+{% extends "passvault/layout.html" %}
+
+{% block body %}
+    <ul class="nav-links">
+        <li><a href="{% url 'login_view' %}">Sign-In</a></li>
+        <li><a href="{% url 'register' %}">Sign-Up</a></li>
+        
+    </ul>
+{% endblock %}

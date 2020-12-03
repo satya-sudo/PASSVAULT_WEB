@@ -1,0 +1,14 @@
+{% extends "passvault/layout.html" %}
+
+{% block body %}
+    <div class="nav-links">
+        
+        <h4>Welcome {{username}}</h4>
+        <ul class="nav-links">
+            <li><a href="{% url 'getallpassword' %}">View all Saved passwords</a></li>
+            <li><a href="{% url 'AddCred' %}">Add A New Credential</a></li>
+            <li><a href="{% url 'search' %}">Search by SiteName</a></li>                    
+            <li><a href="{% url 'logout_view' %}">Log-out</a></li>
+        </ul>      
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "passvault/layout.html" %}
+
+{% block body %}
+    <form action="{% url 'register' %}" method="post"  name='register-form' class="form-login">
+        {% csrf_token %}
+        <h4>Sign Up</h4>
+        {% if message %}
+            <h5 class="error">{{ message }}</h5>
+        {% endif %}    
+        
+        <input id="username" type="text" name='username' placeholder="Username">
+        <input id="email" type="email" name='email' placeholder='Email'>
+        <input id="password" type="password" name="password"  placeholder="Password">
+        <input id="ConfirmPassword" type="password" name="confirm" placeholder="Confirm Password">
+        <input id='sbutton' type="submit" value="Sign-UP">
+
+    </form>
+    <ul class="nav-links">
+        <li><a href="{% url 'index'%}">Back</a></li>
+    </ul>
+    
+{% endblock %}

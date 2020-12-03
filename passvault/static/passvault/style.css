@@ -1,0 +1,108 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background-color: darkcyan;
+    color: white;
+}
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+nav{
+    margin-top:20vh;
+    max-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    align-items: center;
+    
+}
+
+.logo{
+    margin: 20px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 5vw;
+}
+
+.nav-links{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+.nav-links li{
+    padding: 10px;
+    list-style: None;
+}
+
+.nav-links a{
+    color: white;
+    text-decoration: None;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 3vw;
+    border: solid seashell 2px;
+    margin: 5px;
+    padding: 5px;
+    border-radius:4px ;
+}
+
+hr{
+    color: white;
+}
+
+.form-login{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    font-size-adjust: .8;
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+
+}
+.form-login h4{
+    padding: 10px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    
+}
+#sbutton {
+    margin: 10px;
+    padding: 5px;
+    border: 2px solid white;
+    border-radius: 4px;
+}
+.form-login input{
+    margin: 10px;
+    padding: 5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid white;
+    
+}
+
+.password-zone {
+    text-align: center;
+    margin: 10px;
+    border: white 2px solid ;
+    border-radius: 4px ;
+}
+.error {
+    color: coral;
+}
+
+.nav-links a:hover {
+    background-color: brown;
+}
+

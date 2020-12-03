@@ -1,0 +1,29 @@
+{% extends "passvault/layout.html" %}
+
+{% block body %}
+<div class="nav-links">
+    <h4>{{ resultTitle}}</h4>
+    {% for res in results %}
+    <div class="password-zone">
+        <ul>
+            <li>
+                Site Name : {{res.SiteName}}
+            </li>
+            <li>
+                Username : {{res.SiteUserName}}
+            </li>
+            <li>
+                Password : {{res.PasswordForSite}}
+            </li>
+        </ul>
+    </div>
+    {% empty %}
+    <h3 style="text-align: center;">No Cred. Found!</h3>
+    {% endfor %}
+    
+</div>
+<ul class="nav-links">
+    <li><a href="{% url 'userMenu'%}">Back</a></li>
+</ul>
+
+{% endblock %}
