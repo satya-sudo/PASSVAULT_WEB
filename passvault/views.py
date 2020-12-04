@@ -17,6 +17,10 @@ def index(request):
 
     return render(request,"passvault/index.html")
 
+def T&C(request):
+    return render(request,"passvault/T&C.html")
+    
+
 def login_view(request):
 
     if request.user.is_authenticated:
