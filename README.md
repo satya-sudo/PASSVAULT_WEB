@@ -26,5 +26,5 @@
  - python3 manage.py runserver
 
 ### Wanna use the local terminal version of passvault?
-- check out https://github.com/satya-sudo/PASSVAULT_WEB.git
+- check out https://github.com/satya-sudo/Passvault
 
