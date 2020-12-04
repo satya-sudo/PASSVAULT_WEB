@@ -1,5 +1,7 @@
+import os
+
 def passHash(s,p):
-    salt = 'dsahdjsdkashdqo8382jhdajks'
+    salt = os.environ.get("PASSVAULT_SALT") if os.environ.get("PASSVAULT_SALT") else 'dsahdjsdkaa3eeqw21e21shdqo8382jhdajks'
     final_p = ''
     for i in p:
         final_p += chr(ord(i)+len(salt))
@@ -10,7 +12,8 @@ def passHash(s,p):
     return final_p
 
 def unhashpass(s,p):
-    salt = 'dsahdjsdkashdqo8382jhdajks'
+    salt = os.environ.get("PASSVAULT_SALT") if os.environ.get("PASSVAULT_SALT") else 'dsahdjsdkaa3eeqw21e21shdqo8382jhdajks'
+    
     z = p[0:len(p)-len(salt)-2*len(s)]
     passV = ''
     for i in z:
