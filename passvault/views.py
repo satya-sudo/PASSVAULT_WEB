@@ -3,13 +3,13 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.urls import reverse
 
 
-
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 
 from .models import User,SavedPassword
 from django.db import IntegrityError
 
+from .util import passHash,unhashpass
 
 def index(request):
     if request.user.is_authenticated:
@@ -78,7 +78,8 @@ def AddCred(request):
     if request.method == 'POST':
         SiteName = request.POST['Sitename']
         SiteUserName =  request.POST['siteusername']
-        password = request.POST['password']
+        password = passHash(request.user.username,request.POST['password'])
+        
 
         newCred = SavedPassword(user=request.user,SiteName=SiteName,SiteUserName=SiteUserName,PasswordForSite=password)
         newCred.save()
@@ -93,6 +94,8 @@ def search(request):
         try:
             user = request.user
             passwords = user.SitePasswords.all().filter(SiteName__icontains=query)
+            for i  in passwords:
+                i.PasswordForSite = unhashpass(request.user.username,i.PasswordForSite)
             return render(request,'passvault/found.html',{'resultTitle':f'Found results for {query}','results':passwords})
         except:
             pass
@@ -104,6 +107,8 @@ def getallpassword(request):
     try:
         user = request.user
         passwords = user.SitePasswords.all()
+        for i  in passwords:
+            i.PasswordForSite = unhashpass(request.user.username,i.PasswordForSite)
     except:
         return render(request,'passvault/found.html')
         
