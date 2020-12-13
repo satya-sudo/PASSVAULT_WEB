@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY') if os.environ.get('SECRET_KEY') else '
 #SECRET_KEY = 'tp@0pip9(17uu9+0a8yyc=5im7+ryqtiz!10wohi=c!2!^ej&b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('SECRET_KEY') if  os.environ.get('SECRET_KEY') else False
+DEBUG = os.environ.get('DEBUG_VALUE') if  os.environ.get('SECRET_KEY') else False
 
 ALLOWED_HOSTS = ['passvaultplus.herokuapp.com']
 
