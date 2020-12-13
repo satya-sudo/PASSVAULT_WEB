@@ -1,0 +1,16 @@
+{% extends "passvault/layout.html" %}
+
+{% block body %}
+    <form  method="post"  name='reset-form' class="form-login">
+        <h4>Reset Password</h4>
+        <p> Forgotten Your Password? Enter Your Email to Reset</p>
+        {% csrf_token %}
+        {{form}}    
+    
+        <input id="sbutton" type="submit" value="Submit">
+
+    </form>
+    <ul class="nav-links">
+        <li><a href="{% url 'index'%}">Back</a></li>
+    </ul>
+{% endblock %}
