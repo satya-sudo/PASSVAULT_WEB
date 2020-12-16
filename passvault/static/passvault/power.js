@@ -90,5 +90,8 @@ function checkForm(){
         console.log(Searchquery.value)
         formToCheck.submit();
         return true;
+    } else {
+        formToCheck.submit();
+        return true;
     }
 }
