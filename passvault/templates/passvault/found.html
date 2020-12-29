@@ -4,18 +4,25 @@
 <div class="nav-links">
     <h4>{{ resultTitle}}</h4>
     {% for res in results %}
-    <div class="password-zone">
+    <div class="password-zone" style="text-align: left;width:300px">
         <ul>
             <li>
                 Site Name : {{res.SiteName}}
+                <hr>
             </li>
             <li>
                 Username : {{res.SiteUserName}}
+                <hr>
             </li>
             <li>
                 Password : {{res.PasswordForSite}}
+                <hr>
+            </li>
+            <li>
+                <a class="edit-btn" href="{% url 'editPassword' id=res.pk %}" >edit</a>
             </li>
         </ul>
+       
     </div>
     {% empty %}
     <h3 style="text-align: center;">No Cred. Found!</h3>

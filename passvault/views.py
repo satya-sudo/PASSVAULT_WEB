@@ -113,3 +113,32 @@ def getallpassword(request):
         return render(request,'passvault/found.html')
         
     return render(request,'passvault/found.html',{'results':passwords})
+
+
+@login_required(login_url='/login') 
+def editPassword(request,id):
+    try:
+        cred = SavedPassword.objects.get(pk=id)
+      
+    except SavedPassword.DoesNotExist:
+        
+        return HttpResponseRedirect(reverse("userMenu"))
+        
+    userpk =  request.user.pk
+    if cred.user.pk != userpk:
+       
+        return HttpResponseRedirect(reverse("userMenu"))
+        
+
+    if request.method == 'POST':
+        SiteName = request.POST['Sitename']
+        SiteUserName =  request.POST['siteusername']
+        password = request.POST['password']
+
+        cred.SiteName = SiteName
+        cred.SiteUserName = SiteUserName
+        cred.PasswordForSite = password
+        cred.save()
+        return HttpResponseRedirect(reverse("userMenu"))
+
+    return render(request,'passvault/newCred.html',{'cred':cred})

@@ -1,11 +1,12 @@
 {% extends "passvault/layout.html" %}
 
 {% block body %}
+
 <form action="{% url 'AddCred' %}" method="post" name='NewCred-form' class="form-login">
     <h4 style="text-align: center;">Enter Credential Details</h4>
     {% csrf_token %}
-    <input id="Sitename" type="text" name='Sitename' placeholder="Sitename or Url">
-    <input id="siteusername" name="siteusername" type="text" placeholder="Username for the website">
+    <input id="Sitename" type="text" name='Sitename' placeholder="Sitename or Url" value={{cred.SiteName}}>
+    <input id="siteusername" name="siteusername" type="text" placeholder="Username for the website" value={{cred.SiteUserName}}>
     <input id="password" name="password" type="password" placeholder="Password for the website">
 
     <input id="sbutton" type="submit" value="Save">

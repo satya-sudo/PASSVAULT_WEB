@@ -13,6 +13,8 @@ urlpatterns = [
     path('AddCred',views.AddCred,name='AddCred'),
     path('search',views.search,name='search'),
     path('getAllPasswords',views.getallpassword,name='getallpassword'),
+    path('editPassword/<int:id>',views.editPassword,name='editPassword'),
+
 
     path('reset_password',auth_views.PasswordResetView.as_view(template_name="passvault/reset_1.html"),name="reset_password"),
     path('resent_password_sent',auth_views.PasswordResetDoneView.as_view(template_name="passvault/reset_2.html"),name="password_reset_done"),
